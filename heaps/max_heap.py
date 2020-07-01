@@ -12,15 +12,23 @@ class MaxHeap:
 
     def insert(self, item):
         self.heap.append(item)
-        self.heapify(0)
+        cur_idx = len(self.heap) - 1
+        self.heapify_up(cur_idx)
 
     def remove(self):
         if len(self.heap) == 0:
             return
         self.heap[0] = self.heap.pop()
-        self.heapify(0)
+        self.heapify_down(0)
 
-    def heapify(self, idx):
+    def heapify_up(self, idx):
+        parent_idx = (idx - 1) // 2
+        while parent_idx >= 0 and self.heap[parent_idx] < self.heap[idx]:
+            self.heap[parent_idx], self.heap[idx] = self.heap[idx], self.heap[parent_idx]
+            idx = parent_idx
+            parent_idx = (idx - 1) // 2
+
+    def heapify_down(self, idx):
         l_child = 2 * idx + 1
         r_child = 2 * idx + 2
         max_idx = idx
@@ -34,7 +42,7 @@ class MaxHeap:
 
         if max_idx != idx:
             self.heap[idx], self.heap[max_idx] = self.heap[max_idx], self.heap[idx]
-            self.heapify(max_idx)
+            self.heapify_down(max_idx)
 
     def print_heap(self):
         for item in self.heap:
@@ -47,6 +55,6 @@ if __name__ == "__main__":
     min_heap.insert(2)
     min_heap.insert(1)
     min_heap.insert(10)
-    # min_heap.remove()
 
+    min_heap.remove()
     min_heap.print_heap()
