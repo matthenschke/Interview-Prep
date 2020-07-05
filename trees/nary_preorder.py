@@ -8,7 +8,7 @@ class Node:
 
 
 class Solution:
-    def preorder(self, root: 'Node'):
+    def preorder(self, root):
 
         def preorder_hlp(root, arr):
             if root:
