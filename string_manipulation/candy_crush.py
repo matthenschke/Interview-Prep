@@ -17,3 +17,4 @@ def candyCrush(s):
 if __name__ == "__main__":
     print(candyCrush("abbbbbeaacd"))  # aecd
     print(candyCrush('aaaaabbaaaaaaaaa'))  # ''
+    print(candyCrush("aaaabbacbb"))
