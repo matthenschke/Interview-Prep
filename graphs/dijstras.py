@@ -22,7 +22,7 @@ def dijstras(graph, start):
         for v, dist in graph[u].items():
             if cur_distance + dist < distances[v]:
                 distances[v] = cur_distance + dist
-                heapq.heappush(pq, (dist, v))
+                heapq.heappush(pq, (distances[v], v))
     return distances
 
 
@@ -30,7 +30,7 @@ graph = {
     'A': {'B': 1, 'C': 2},
     'B': {'C': 4},
     'C': {'D': 2},
-    'D': {}
+    'D': {'A': 2}
 }
 
 print(dijstras(graph, 'A'))
