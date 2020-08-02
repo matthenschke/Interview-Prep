@@ -23,17 +23,3 @@ def Add(x, y):
 
 
 print(Add(1, -1))
-
-
-# def add(a, b):
-
-#     while (b != 0):
-#         print(b)
-#         carry = a & b
-#         a = a ^ b
-#         b = carry << 1
-
-#     return a
-
-
-# print(add(-1, 1))
